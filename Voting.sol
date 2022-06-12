@@ -3,8 +3,7 @@
 pragma solidity >= 0.7.0 < 0.9.0;
 
 contract Ballot {
-    
-    //Variables
+
     struct vote{
         address voterAddress;
         bool choice;
@@ -30,7 +29,6 @@ contract Ballot {
     enum State { Created, Voting, Ended }
     State public state;
 
-    //Modifiers
     modifier condition(bool _condition){
         require(_condition);
         _;
@@ -45,12 +43,7 @@ contract Ballot {
         require(state == _state);
         _;
     }
-
-
-
-    //Events
-
-    //Functions
+    
     constructor(
         string memory _ballotOfficialName,
         string memory _proposal
